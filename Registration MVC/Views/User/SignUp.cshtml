@@ -1,0 +1,105 @@
+﻿@model Registration_MVC.Models.UserModel
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2>SignUp</h2>
+<div class="row">
+    <div class="col-md-8">
+        <h4>Sign Up</h4>
+        <form method="post" action="@Url.Action("SignUp", "User")" class="form-horizontal">
+            <div class="form-group">
+                <label for="UserName" class="control-label">User Name</label>
+                @Html.TextBoxFor(model => model.UserName, htmlAttributes: new
+           {
+               @class = "form-control"
+           })
+                @Html.ValidationMessageFor(model=>model.UserName,"",new {@class ="text-danger"})
+            </div>
+            <div class="form-group">
+                <label for="EmailId" class="control-label">User EmailId</label>
+                @Html.TextBoxFor(model => model.EmailId, htmlAttributes: new
+           {
+               @class = "form-control"
+           })
+                @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <label for="Password" class="control-label">Password</label>
+                @Html.PasswordFor(model => model.Password, htmlAttributes: new
+           {
+               @class = "form-control"
+           })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <label for="ConfirmPassword" class="control-label">Confirm Password</label>
+                @Html.PasswordFor(model => model.ConfirmPassword, htmlAttributes: new
+           {
+               @class = "form-control"
+           })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <label for="MobileNumber" class="control-label">User Mobile Number</label>
+                @Html.TextBoxFor(model => model.MobileNumber, htmlAttributes: new
+           {
+               @class = "form-control"
+           })
+                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <label for="UserImageUrl" class="control-label">Select Image</label>
+                <input type="file" class="form-control" name="UserImageUrl" id="UserImageUrl" />
+            </div>
+            <div class="form-group">
+                <label for="Gender" class="control-label">Select Gender</label>
+                <input type="radio" class="radio-inline" name="Gender" value="Male" id="maleGender" />Male
+                <input type="radio" class="radio-inline" name="Gender" value="Female" id="femaleGender" />Female
+            </div>
+            <div class="form-group">
+                <label for="CountryId" class="control-label">Country</label>
+                @Html.DropDownList("CountryId",null, "Select Country", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="StateId" class="control-label">State</label>
+                @Html.DropDownList("StateId", null, "Select State", new { @class = "form-control" })
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <h4>Sign In</h4>
+        <form method="post" action="@Url.Action("SignIn", "User")" class="form-horizontal">
+            <div class="form-group">
+                <label for="UserName" class="control-label">User Name</label>
+                @Html.TextBoxFor(model => model.UserName, htmlAttributes: new
+           {
+               @class = "form-control"
+           })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+            </div>
+            
+            <div class="form-group">
+                <label for="Password" class="control-label">Password</label>
+                @Html.PasswordFor(model => model.Password, htmlAttributes: new
+           {
+               @class = "form-control"
+           })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" type="submit">Sign In</button>
+            </div>
+        </form>
+    </div>
+</div>
